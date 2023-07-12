@@ -41,7 +41,7 @@ python3 classify.py ExampleData/test_exp.txt ExampleData/test_gt.txt ./
 ```
 
 ## GWAS Colocalization Analysis
-One metric of assessing the functionality of our top SNPs is by calculating the colocalization with known GWAS signals. We did this by downloading the entire GWAS Catalog (https://www.ebi.ac.uk/gwas/docs/file-downloads) and searching 10kb upstream and downstream of a given SNP for known GWAS associations. We compared our machine learning framework to state-of-the-art linear multivariate approaches, namely MultiPhen and MANOVA, which both output a nominal p-value. We have created a script and sampled 100,000 gene-SNP pairs from our results to serve as an example of the utility of this method.
+One metric for assessing the functionality of our top SNPs is by calculating the colocalization with known GWAS signals. We did this by downloading the entire GWAS Catalog (https://www.ebi.ac.uk/gwas/docs/file-downloads) and searching 10kb upstream and downstream of a given SNP for known GWAS associations. We compared our machine learning framework to state-of-the-art linear multivariate approaches, namely MultiPhen and MANOVA, which both output a nominal p-value. We have created a script and sampled 100,000 gene-SNP pairs from our results to serve as an example of the utility of this method.
 
 The GWAS colocalization analysis script utilizes the following dependencies:
 * matplotlib >= 3.7.2
@@ -49,4 +49,21 @@ The GWAS colocalization analysis script utilizes the following dependencies:
 * pandas >= 2.0.3
 * requests >= 2.31.0
 
+The general syntax of the GWAS colocalization analysis script is as follows:
+```
+python3 gwas_colocalization.py mtclass mtclass_metric multiphen manova out_dir
+```
 
+This script requires that you __EITHER__ specify where the downloaded GWAS Catalog is with ```--gwas_catalog ${PATH_TO_GWAS_CATALOG}```, __OR__ you can choose to download the GWAS Catalog into the current working directory with ```--download```. The NHGRI-EBI GWAS Catalog is about 270 MB in size.
+
+The MTClass results must be formatted in the following way:
+| gene | variant | Metric1 | Metric2 | ... |
+| --- | --- | --- | --- | --- |
+| HBB | chr11_12581527_A_T_b38 | 0.751 | 0.732 | ... |
+
+The MultiPhen and MANOVA results are formatted similarly, with ```gene``` and ```variant``` columns, and with a ```pval``` column afterwards instead of classification metrics.
+
+An example dataset using a random subset of 500,000 gene-SNP pairs has been provided in the code. To run this analysis, simply use the following command, which will download the GWAS Catalog, and save a plot and a table in the current working directory:
+```
+python3 gwas_colocalization.py ExampleResults/mtclass.txt.gz f1_macro_median ExampleResults/multiphen.txt.gz ExampleResults/manova.txt.gz ./ --download
+```
