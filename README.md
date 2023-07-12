@@ -61,9 +61,9 @@ The MTClass results must be formatted in the following way:
 | --- | --- | --- | --- | --- |
 | HBB | chr11_12581527_A_T_b38 | 0.751 | 0.732 | ... |
 
-The MultiPhen and MANOVA results are formatted similarly, with ```gene``` and ```variant``` columns, and with a ```pval``` column afterwards instead of classification metrics.
+The MultiPhen and MANOVA results should be formatted similarly, with ```gene``` and ```variant``` columns, and with a ```pval``` column afterward instead of classification metrics.
 
-An example dataset using a random subset of 500,000 gene-SNP pairs has been provided in the code. To run this analysis, simply use the following command, which will download the GWAS Catalog, and save a plot and a table in the current working directory:
+An example dataset using a random subset of 500,000 gene-SNP pairs has been provided in the code. To run this analysis, simply use the following command, which will download the GWAS Catalog, and save a plot and a results .txt file in the current working directory:
 ```
 python3 gwas_colocalization.py ExampleResults/mtclass.txt.gz f1_macro_median ExampleResults/multiphen.txt.gz ExampleResults/manova.txt.gz ./ --download
 ```
