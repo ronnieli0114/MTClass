@@ -1,5 +1,5 @@
 # MTClass
-Using machine learning to classify gene-SNP pairs
+Using machine learning to classify gene-SNP pairs based on multiple phenotypes. A new way to think about multivariate genome-wide association.
 
 ## Classification of gene-SNP pairs
 We adopted an ensemble learning framework to classify an individual's genotype based on the vector of expression levels from multiple tissues or multiple exons. In doing so, we hope to uncover eQTLs that have effects on gene expression across multiple phenotypes.
