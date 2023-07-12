@@ -12,7 +12,7 @@ import os
 from argparse import ArgumentParser
 pd.options.mode.chained_assignment = None
 
-parser = ArgumentParser(prog='MTClass classifier', description='Ensemble classifier for gene-SNP pairs')
+parser = ArgumentParser(prog='GWAS Colocalization', description='GWAS Catalog colocolization analysis')
 parser.add_argument('mtclass', help='Path to MTClass results', type=str)
 parser.add_argument('mtclass_metric', help='MTClass classification metric to use', type=str)
 parser.add_argument('multiphen', help='Path to MultiPhen results', type=str)
