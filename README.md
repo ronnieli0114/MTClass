@@ -4,7 +4,12 @@ Using machine learning to classify gene-SNP pairs
 ## Classification of gene-SNP pairs
 We adopted an ensemble learning framework to classify an individual's genotype based on the vector of expression levels from multiple tissues or multiple exons. In doing so, we hope to uncover eQTLs that have effects on gene expression across multiple phenotypes.
 
-The general syntax of the script is as follows:
+The MTClass script utilizes the following dependencies:
+* numpy >= 1.25.0
+* pandas >= 2.0.3
+* scikit-learn >= 1.3.0
+
+The general syntax of the main MTClass script is as follows:
 ```
 python3 classify.py exp gt out_dir
 ```
@@ -37,3 +42,11 @@ python3 classify.py ExampleData/test_exp.txt ExampleData/test_gt.txt ./
 
 ## GWAS Colocalization Analysis
 One metric of assessing the functionality of our top SNPs is by calculating the colocalization with known GWAS signals. We did this by downloading the entire GWAS Catalog (https://www.ebi.ac.uk/gwas/docs/file-downloads) and searching 10kb upstream and downstream of a given SNP for known GWAS associations. We compared our machine learning framework to state-of-the-art linear multivariate approaches, namely MultiPhen and MANOVA, which both output a nominal p-value. We have created a script and sampled 100,000 gene-SNP pairs from our results to serve as an example of the utility of this method.
+
+The GWAS colocalization analysis script utilizes the following dependencies:
+* matplotlib >= 3.7.2
+* numpy >= 1.25.0
+* pandas >= 2.0.3
+* requests >= 2.31.0
+
+
