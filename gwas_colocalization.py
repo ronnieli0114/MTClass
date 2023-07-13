@@ -53,6 +53,7 @@ def process_gwas_catalog(gwas_table):
     gwas_table['seqnames'] = gwas_table['CHR_ID'].apply(lambda x: "chr"+str(x))
     gwas_table['starts'] = gwas_table['position'].astype(int)
     gwas_table['ends'] = gwas_table['position'].astype(int)
+    gwas_table = gwas_table.drop_duplicates(['seqnames','starts','ends'])
     print('Loaded GWAS Catalog')
     gwas_table = gwas_table.loc[:,['seqnames','starts','ends']]
     return gwas_table
