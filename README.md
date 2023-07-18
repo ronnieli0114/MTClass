@@ -14,19 +14,19 @@ The general syntax of the main MTClass script is as follows:
 python3 classify.py exp gt out_dir
 ```
 where:
-  * exp = path to gene expression file (in .txt or .txt.gz format)
-  * gt = path to genotypes file (in .txt or .txt.gz format)
+  * exp = path to gene expression file (tab-delimited format)
+  * gt = path to genotypes file (tab-delimited format)
   * out_dir = output directory to store results
 
 ### Gene expression file
-The gene expression file must be structured in the following way, with the first two columns being ```gene``` and ```donor```. The rest of the columns are the feature names:
+The gene expression file must be structured in the following way, with the first two columns being ```gene``` and ```donor```. This file must be tab-delimited. The rest of the columns are the feature names:
 | gene | donor | pheno1 | pheno2 | pheno3 | ... |
 | --- | --- | --- | --- | --- | --- |
 | HBB | Sample1 | 8.19 | 7.12 | 11.47 | ... |
 | HBB | Sample2 | 5.01 | 12.70 | 2.15 | ... |
 
 ### Genotypes file
-The genotypes file must be structured in the following way, with the first two columns being ```gene``` and ```ID```. The rest of the columns are the sample names. The sample names must match those in the ```donor``` column of the gene expression file.
+The genotypes file must be structured in the following way, with the first two columns being ```gene``` and ```ID```. The rest of the columns are the sample names. The sample names must match those in the ```donor``` column of the gene expression file. This file must be tab-delimited.
 
 **Note**: The formatting of this genotype file is very similar to that of a typical VCF, except with the addition of the ```gene``` column and the binarization of the genotypes.
 | gene | ID | Sample1 | Sample2 | ... |
