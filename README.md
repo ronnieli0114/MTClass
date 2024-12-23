@@ -1,8 +1,8 @@
 # MTClass
-Using machine learning to classify gene-SNP pairs based on multiple phenotypes. A new way to think about multivariate genome-wide association.
+Using machine learning to classify eGene-eQTL pairs based on multiple phenotypes. A new framework to conduct multivariate genome-wide association.
 
 ## Classification of gene-SNP pairs
-We adopted an ensemble learning framework to classify an individual's genotype based on the vector of expression levels from multiple tissues or multiple exons. In doing so, we hope to uncover eQTLs that have effects on gene expression across multiple phenotypes.
+We adopted an ensemble machine learning framework to classify an individual's genotype based on the vector of expression levels from multiple phenotypes (tissues, exons, isoforms, cell types, etc.). In doing so, we hope to uncover eQTLs that have broad effects on gene expression across multiple phenotypes.
 
 The MTClass script utilizes the following dependencies:
 * numpy >= 1.25.0
@@ -41,7 +41,7 @@ python3 classify.py ExampleData/test_exp.txt ExampleData/test_gt.txt ./
 ```
 
 ## GWAS Colocalization Analysis
-One metric for assessing the functionality of our top SNPs is by calculating the colocalization with known GWAS signals. We did this by downloading the entire GWAS Catalog (https://www.ebi.ac.uk/gwas/docs/file-downloads) and searching 10kb upstream and downstream of a given SNP for known GWAS associations. We compared our machine learning framework to state-of-the-art linear multivariate approaches, namely MultiPhen and MANOVA, which both output a nominal p-value. We have created a script and sampled 100,000 gene-SNP pairs from our results to serve as an example of the utility of this method.
+One metric for assessing the functionality of our top SNPs is by calculating the colocalization with known GWAS signals. We did this by downloading the entire GWAS Catalog (https://www.ebi.ac.uk/gwas/docs/file-downloads) and searching 10kb upstream and downstream of a given eQTL for known trait associations. We compared our machine learning framework to state-of-the-art linear multivariate approaches, namely MultiPhen and MANOVA, which both output a nominal p-value. We have created a script and sampled 100,000 gene-SNP pairs from our results to serve as an example of the utility of this method.
 
 The GWAS colocalization analysis script utilizes the following dependencies:
 * matplotlib >= 3.7.2
